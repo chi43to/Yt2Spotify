@@ -91,7 +91,7 @@ if token:
 
 	#Failed songs output
 
-	with open("failed_songs.txt","w") as f:
+	with open("failed_songs.txt","w",encoding="utf-8") as f:
 		for each in debuf:
 			f.write("%s\n" % each)
 	print("Please re-add these songs " + str(debuf))
