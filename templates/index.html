@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+
+
+  function myfunc() {
+    document.getElementById("focusedInput345").scrollIntoView();
+  }
+</script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Yt2Spoti Playlist Converter</title>
+
+  <!-- Bootstrap core CSS -->
+{{ bootstrap.load_css() }}
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scrolling-nav.css') }}">
+
+<style>
+  #auth1 {
+    margin-left: 37%;
+    margin-top: -3%;
+    margin-bottom: 15%;
+  }
+
+  .alert {
+    position: center;
+    margin-top: 40px;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  #buttonSmooth {
+    margin-top: 40px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+  }
+
+  #focusedInput_Spoti {
+    outline: 1px solid green;
+  }
+
+  #focusedInput_YT {
+    outline: 1px solid red;
+  }
+</style>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Yt2Spoti Converter</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Instructions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Converter</a>
+          </li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Youtube 2 Spotify Playlist Converter</h1>
+      <p class="lead">Have lots of Youtube playlist and you're 2 lazy to convert them to Spotify ? Alle Vamos</p>
+    </div>
+  </header>
+
+  {% if content %}
+<div class="alert alert-warning alert-dismissible fade show" id="allert" role="alert">
+    <strong>{{content}}</strong>
+    <ul>
+    {% for item in songs %}
+    
+      <li>{{item}}</li>
+       
+    {% endfor %}
+    </ul>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Instructions</h2>
+          <p class="lead">In order to use this amazing web app, you need the url of your youtube playlist and your Spotify username. Below are instructions on how to obtain Spotify username:|:</p>
+          <ul>
+            <li>Visit: <a href="https://www.spotify.com/bg/account/overview/">https://www.spotify.com/bg/account/overview/</a> and Log In to your Spotify account.</li>
+            <li>Click on Account overview.</li>
+            <li>Save the randomly generated string of your <b>username</b>.</li>
+            <li>$$PROFIT$$.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="services" class="bg-light">
+    <div class="container">
+  <h2 id="auth1">Authentication</h2>
+  <form action="{{ url_for('go') }}" class="col-lg-12" method="POST">
+    <div class="form-group">
+      <label for="focusedInput_Spoti">Spotify_Username</label>
+      <input class="form-control" id="focusedInput_Spoti" name="spoti" type="text">
+    </div>
+    <div class="form-group">
+      <label for="focusedInput_YT_LINK">Youtube Playlist link</label>
+      <input class="form-control" id="focusedInput_YT" name = 'yt_link' type="text">
+    </div>
+    <input type="submit" value="Convert">
+  </form>
+
+</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; 4i4koz 42020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+
+
+
+
+
+  {{ bootstrap.load_js() }}
+  <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{{url_for('static', filename='js/scrolling-nav.js')}}"></script>
+
+</script>
+
+
+</body>
+
+</html>
