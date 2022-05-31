@@ -40,8 +40,8 @@ def handle_exceptions(e):
 
 @application.route("/")
 def verify():
-	sp_auth = spotipy.oauth2.SpotifyOAuth(client_id="5967779dfd91475eb775054013737344",
-										  client_secret="367eb2c62b754aa4af103347143de6f7",
+	sp_auth = spotipy.oauth2.SpotifyOAuth(client_id="CLIENT_ID",
+										  client_secret="CLIENT_SECRET",
 										  redirect_uri='http://spoti2yt.herokuapp.com/callback',
 										  cache_path="/var/tmp",
 										  scope='user-library-read playlist-modify-public')
@@ -61,8 +61,8 @@ def init():
 
 @application.route("/callback")
 def callback():
-	sp_auth = spotipy.oauth2.SpotifyOAuth(client_id="5967779dfd91475eb775054013737344",
-										  client_secret="367eb2c62b754aa4af103347143de6f7",
+	sp_auth = spotipy.oauth2.SpotifyOAuth(client_id="CLIENT_ID",
+										  client_secret="CLIENT_SECRET",
 										  redirect_uri='http://spoti2yt.herokuapp.com/callback',
 										  cache_path="/var/tmp",
 										  scope='user-library-read playlist-modify-public')
